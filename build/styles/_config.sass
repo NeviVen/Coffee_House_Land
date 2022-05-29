@@ -1,0 +1,81 @@
+// 100: Thin
+// 200: Extra Light (Ultra Light)
+// 300: Light
+// 400: Normal
+// 500: Medium
+// 600: Semi Bold (Demi Bold)
+// 700: Bold
+// 800: Extra Bold (Ultra Bold)
+// 900: Black (Heavy)
+	
+// USER VARIABLES SECTION
+
+$accent: #92744A // Accent Color
+$fontsize: 20px // Body Font Size
+$lineheight: 1.5 // Document Line Height
+$black: #191512
+$gray: #AFAFAF
+$userfont: roboto-oh5, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilities
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('Oranienbaum', normal, 400, '../fonts/Oranienbaum-Regular.woff2')
+@include font('PlayfairDisplay', normal, 700, '../fonts/PlayfairDisplay-Bold.woff2')
+@include font('PlayfairDisplay', normal, 700, '../fonts/PlayfairDisplay-Regular.woff2')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+html
+	font-size: $fontsize
+body
+	
+	font-family: $userfont
+	line-height: $lineheight
+	color: white
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	box-sizing: border-box
+
+.img-responsive
+	max-width: 100%
+
+.visually-hidden
+	position: absolute
+	width: 1px
+	height: 1px
+	margin: -1px
+	border: 0
+	padding: 0
+	clip: rect (0 0 0 0)
+	overflow: hidden
